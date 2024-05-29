@@ -1,0 +1,115 @@
+/* Reseteo básico para eliminar márgenes y rellenos predeterminados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configuraciones generales */
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #fff;
+  background-color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  width: 100%;
+  max-width: 500px;
+}
+
+.form form {
+  width: 100%;
+}
+
+.form form input {
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.form form button {
+  border: 0;
+  outline: none;
+  background-color: #000000;
+  padding: 10px 24px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 15px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.table-transparent,
+.table-transparent thead,
+.table-transparent tbody,
+.table-transparent tr,
+.table-transparent th,
+.table-transparent td {
+  background-color: transparent !important;
+  color: #fff;
+}
+
+.table {
+  width: 100%;
+}
+
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/** Media Queries */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  .form form input,
+  .form form button {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .form form input,
+  .form form button {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px;
+  }
+}
