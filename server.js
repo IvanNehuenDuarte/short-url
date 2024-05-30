@@ -2,6 +2,12 @@ import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
 import urlRouter from "./routes/urlRout.js";
+import { fileURLToPath } from "url";
+import path from "path";
+
+// Definir __dirname en ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -27,7 +33,7 @@ app.get("/health", (req, res) => {
   res.status(200).send("OK");
 });
 
-app.set("views", "views");
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.json());
