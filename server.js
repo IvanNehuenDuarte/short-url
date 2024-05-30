@@ -7,8 +7,6 @@ const app = express();
 
 mongoose
   .connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000, // Tiempo de espera para selección del servidor
     socketTimeoutMS: 45000, // Tiempo de espera para operaciones de socket
   })
@@ -29,6 +27,7 @@ app.get("/health", (req, res) => {
   res.status(200).send("OK");
 });
 
+app.set("views", "views");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.json());
