@@ -16,11 +16,14 @@ db.once("open", () => {
   console.log("Database connected successfully");
 });
 
-db.on("error", (error) => {
-  console.log(error);
+// Middleware de registro
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
 });
-db.once("open", () => {
-  console.log("Connected");
+
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
 });
 
 app.set("view engine", "ejs");
