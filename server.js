@@ -5,16 +5,19 @@ import urlRouter from "./routes/urlRout.js";
 
 const app = express();
 
-mongoose.connect(process.env.DB_URL);
-
-const db = mongoose.connection;
-
-db.on("error", (error) => {
-  console.error("Database connection error:", error);
-});
-db.once("open", () => {
-  console.log("Database connected successfully");
-});
+mongoose
+  .connect(process.env.DB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000, // Tiempo de espera para selección del servidor
+    socketTimeoutMS: 45000, // Tiempo de espera para operaciones de socket
+  })
+  .then(() => {
+    console.log("Database connected successfully");
+  })
+  .catch((error) => {
+    console.error("Database connection error:", error);
+  });
 
 // Middleware de registro
 app.use((req, res, next) => {
